@@ -8,7 +8,7 @@ var FormView = {
 
   handleSubmit: function (event) {
     // Stop the browser from submitting the form
-
+    console.log('anything');
     event.preventDefault();
     //event.stopPropagation();
     let input = document.getElementById('message').value;
@@ -20,9 +20,9 @@ var FormView = {
     };
 
     Parse.create(message);
-
-    location.reload();
-
+    html = MessageView.render(message);
+    $('#chats').prepend(html);
+    $('#message').val('');
   },
 
 
