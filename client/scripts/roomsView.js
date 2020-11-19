@@ -4,7 +4,7 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    RoomsView.$button.on('click', RoomsView.renderRoom);
+    RoomsView.$button.on('click', Rooms.add);
   },
 
   render: function(data) {
@@ -17,25 +17,17 @@ var RoomsView = {
       }
     }
     let uniqRooms = _.uniq(rooms);
-    Rooms = uniqRooms;
+    Rooms.list = uniqRooms;
 
     let selectedRooms = document.getElementById('selectedRooms');
 
-    for (let room of Rooms) {
+    for (let room of Rooms.list) {
       let html = `<option>${room}</option>`;
       selectedRooms.innerHTML += html;
     }
   },
 
-  renderRoom: function(data) {
-
-    let addRoom = document.getElementById('rooms button');
-    let typedRoom = prompt('Room name?');
-    Rooms.push(typedRoom);
-
-    let $selectedRooms = $('#rooms select');
-
-    let html = `<option>${typedRoom}</option>`;
-    $selectedRooms.append(html);
+  renderRoom: function(typedRoom) {
+    RoomsView.$select.append(`<option>${typedRoom}</option>`);
   }
 };
