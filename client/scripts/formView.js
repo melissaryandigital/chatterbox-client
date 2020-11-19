@@ -21,7 +21,6 @@ var FormView = {
 
     Parse.create(message);
 
-
     location.reload();
 
   },
