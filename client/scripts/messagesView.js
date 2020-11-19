@@ -17,8 +17,8 @@ var MessagesView = {
     console.log(results);
     for (let i = 0; i < results.length; i++) {
       var messageData = {};
-      messageData.username = results[i].username;
-      messageData.text = results[i].text;
+      messageData.username = _.escape(results[i].username);
+      messageData.text = _.escape(results[i].text);
       html += MessageView.render(messageData);
     }
     $chats.append(html);
@@ -37,3 +37,5 @@ var MessagesView = {
   }
 
 };
+
+
