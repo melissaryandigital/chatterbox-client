@@ -15,8 +15,8 @@ var FormView = {
 
     let message = {
       username: App.username,
-      text: input
-      //roomname: 'Reddit'
+      text: input,
+      roomname: selectedRooms.value
     };
 
     Parse.create(message);
@@ -24,6 +24,7 @@ var FormView = {
     location.reload();
 
   },
+
 
   setStatus: function (active) {
     var status = active ? 'true' : null;

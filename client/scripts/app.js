@@ -15,12 +15,12 @@ var App = {
     App.startSpinner();
     App.fetch(App.stopSpinner);
     App.fetch(MessagesView.render);
-
+    App.fetch(RoomsView.render);
   },
 
   fetch: function (callback = () => { }) {
     Parse.readAll((data) => {
-      //console.log(data);
+      // console.log(data);
 
       callback(data);
     });
