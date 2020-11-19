@@ -14,23 +14,28 @@ var App = {
     // Fetch initial batch of messages
     App.startSpinner();
     App.fetch(App.stopSpinner);
+    App.fetch(MessagesView.render);
 
   },
 
   fetch: function (callback = () => { }) {
     Parse.readAll((data) => {
-      console.log(data);
-      let html = '';
-      let { results } = data;
-      for (let i = 0; i < results.length; i++) {
-        console.log(results[i]);
+      //console.log(data);
 
-
-      }
-      callback();
+      callback(data);
     });
   },
   // Is callback for sanitize function?
+
+
+  // for (let i = 0; i < results.length; i++) {
+  //   var renderMessage = {};
+  //   renderMessage.username = results[i].username;
+  //   renderMessage.text = results[i].text;
+  //   html += MessageView.render(renderMessage);
+  // }
+  // $('#chats').append(html);
+
 
 
   // $.getJSON(`http://parse.${window.CAMPUS}.hackreactor.com/chatterbox/classes/messages`,

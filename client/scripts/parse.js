@@ -4,7 +4,7 @@ var Parse = {
 
   create: function(message, successCB, errorCB = null) {
     // todo: save a message to the server
-
+    console.log('sending message');
     $.ajax({
       url: Parse.server,
       type: 'POST',
@@ -12,6 +12,7 @@ var Parse = {
       contentType: 'application/json',
       success: function (data) {
         console.log('chatterbox: Message sent');
+        console.log(data);
       },
       error: function (data) {
         // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error

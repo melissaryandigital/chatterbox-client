@@ -8,17 +8,21 @@ var FormView = {
 
   handleSubmit: function (event) {
     // Stop the browser from submitting the form
-    event.preventDefault();
 
+    event.preventDefault();
+    //event.stopPropagation();
     let input = document.getElementById('message').value;
 
     let message = {
       username: App.username,
-      text: input,
-      roomname: 'Reddit'
+      text: input
+      //roomname: 'Reddit'
     };
 
     Parse.create(message);
+
+
+    location.reload();
 
   },
 
