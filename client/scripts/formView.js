@@ -8,15 +8,15 @@ var FormView = {
 
   handleSubmit: function (event) {
     // Stop the browser from submitting the form
-    console.log('anything');
     event.preventDefault();
     //event.stopPropagation();
     let input = document.getElementById('message').value;
+    let room = MessagesView.$select.val();
 
     let message = {
       username: App.username,
       text: input,
-      roomname: selectedRooms.value
+      roomname: room
     };
 
     Parse.create(message);

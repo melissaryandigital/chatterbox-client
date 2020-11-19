@@ -55,7 +55,8 @@ var MessagesView = {
     $chats.html('');
     let html = '';
 
-    let room = $('#selectedRooms').val();
+    //let room = $('#selectedRooms').val();
+
 
     var filteredResults = Messages.results.filter(item => {
       return item['roomname'] === room;
@@ -66,8 +67,6 @@ var MessagesView = {
     }
 
     $chats.append(html);
-
-    console.log(filteredResults);
   }
 };
 

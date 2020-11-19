@@ -10,6 +10,7 @@ var App = {
     FormView.initialize();
     RoomsView.initialize();
     MessagesView.initialize();
+    Friends.initialize();
 
     // Fetch initial batch of messages
     App.startSpinner();
@@ -20,39 +21,10 @@ var App = {
 
   fetch: function (callback = () => { }) {
     Parse.readAll((data) => {
-      // console.log(data);
 
       callback(data);
     });
   },
-  // Is callback for sanitize function?
-
-
-  // for (let i = 0; i < results.length; i++) {
-  //   var renderMessage = {};
-  //   renderMessage.username = results[i].username;
-  //   renderMessage.text = results[i].text;
-  //   html += MessageView.render(renderMessage);
-  // }
-  // $('#chats').append(html);
-
-
-
-  // $.getJSON(`http://parse.${window.CAMPUS}.hackreactor.com/chatterbox/classes/messages`,
-  // function (data) {
-  //   let html = '';
-  //   let { results } = data;
-
-  //   let sanitizedClean = renderDAta(results);
-  //   //console.log(sanitizedClean);
-  //   for (let i = 0; i < sanitizedClean.length; i++) {
-  //     // console.log(sanitizedClean[i]);
-  //     html += MessageView.render(results[i]);
-  //   }
-  //   $('#chats').append(html);
-  // });
-
-
 
   startSpinner: function () {
     App.$spinner.show();
