@@ -51,7 +51,7 @@ var MessagesView = {
     $chats.append(html);
 
     // just a test for now! Possibly erase FRIENDs stuff above or comment out.
-    Friends.toggleStatus();
+    Friends.addFriend();
 
   },
 
