@@ -24,12 +24,12 @@ var MessagesView = {
       let messageData = {};
       let friendsData = {};
 
-      messageData.createdAt = _.escape(results[i].createdAt);
-      messageData.objectId = _.escape(results[i].objectId);
-      messageData.roomname = _.escape(results[i].roomname);
-      messageData.updatedAt = _.escape(results[i].updatedAt);
-      messageData.username = _.escape(results[i].username);
-      messageData.text = _.escape(results[i].text);
+      messageData.createdAt = escape(results[i].createdAt);
+      messageData.objectId = escape(results[i].objectId);
+      messageData.roomname = escape(results[i].roomname);
+      messageData.updatedAt = escape(results[i].updatedAt);
+      messageData.username = escape(results[i].username);
+      messageData.text = escape(results[i].text);
 
       friendsData.createdAt = messageData.createdAt;
       friendsData.objectId = messageData.objectId;
@@ -48,7 +48,8 @@ var MessagesView = {
     Friends.list = friendsArr;
 
     $chats.append(html);
-    console.log(Friends.list);
+
+    Friends.test();
   },
 
   renderMessage: function (message) {

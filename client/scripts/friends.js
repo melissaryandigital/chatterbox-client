@@ -1,5 +1,5 @@
 var Friends = {
-  // $user: $('.username'),
+
 
   list: [],
 
@@ -9,11 +9,24 @@ var Friends = {
 
   },
 
+  test: function() {
+    $user = $('.username');
+
+    console.log($user);
+
+  },
+
+
   toggleStatus: function() {
 
 
   }
 };
+
+
+
+
+
 
 // GOAL: when we click on a name, the status will change to 'friends' and it will in bold.
 
