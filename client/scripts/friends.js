@@ -1,6 +1,5 @@
 var Friends = {
 
-
   list: [],
 
   initialize: function () {
