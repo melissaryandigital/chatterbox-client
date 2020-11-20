@@ -1,67 +1,47 @@
 var Friends = {
-
+  //$user: $('.username'),
   list: [],
 
   initialize: function () {
-
-    Friends.toggleStatus();
-
+    //FormView.$form.on('submit', FormView.handleSubmit);
   },
 
-  test: function() {
+  toggleStatus: function () {
+    // adds .friend class to the chat div for specific user
+    // iterate through friends list
+    // add class friends username
     $user = $('.username');
-    $user = $('.chat');
+    let chat = document.querySelector('.chat');
 
-    $user.on('click', function() {
-      console.log('yes');
+    $user.on('click', function (event) {
+      console.log(event.target.innerText);
+
+      let username = event.target.innerText;
+      let { results } = Messages;
+
+      // iterate through all messages
+      for (var i = 0; i < results.length; i++) {
+        // if the message's username = clicked username
+        if (results[i]['username'] === username) {
+          // check the status and toggle it
+          if (results[i]['status'] === true) {
+            results[i]['status'] = false;
+          } else {
+            results[i]['status'] = true;
+          }
+          // find all chats made by this username
+          // add the class
+        }
+      }
+      $(this).toggleClass('friend');
+      //$user.toggleClass('friend');
+      //Friends.toggleFriendClass();
     });
-
   },
 
-
-  toggleStatus: function() {
-
+  toggleFriendClass: function () {
 
   }
+
+
 };
-
-
-
-
-
-
-// GOAL: when we click on a name, the status will change to 'friends' and it will in bold.
-
-// messagesView
-// Look at friendStatus
-// if it's true, while we're rendering the page
-//https://api.jquery.com/toggleclass/ https://api.jquery.com/toggleclass/
-
-// Add a proptery for 'friendStatus' (by default it's false)
-// When you click on a username
-// Gets the text to find that username
-// Updates the friendStatus to true
-//
-
-
-
-// Messages.results in messagesView gets an extra property called status.
-// status will either be true / false. True means friends, False means NOT friends.
-// when you click on a username, all people with that username becomes friends by toggling.
-// status from false to true.
-// if status is true, add the class "friends" (styles.css) will fire.
-// if status is false, the css won't fire.
-
-
-
-
-
-
-
-
-// toggleStatus: function() {
-//   console.log('Friends.$user', Friends.$user);
-//   setTimeout(function() {
-//     console.log($('.username'));
-//   }, 3000);
-// }

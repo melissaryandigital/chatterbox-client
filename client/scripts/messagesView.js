@@ -18,11 +18,11 @@ var MessagesView = {
     let { results } = data;
 
     let messageArr = [];
-    let friendsArr = [];
+    // let friendsArr = [];
 
     for (let i = 0; i < results.length; i++) {
       let messageData = {};
-      let friendsData = {};
+      // let friendsData = {};
 
       messageData.createdAt = escape(results[i].createdAt);
       messageData.objectId = escape(results[i].objectId);
@@ -32,26 +32,27 @@ var MessagesView = {
       messageData.text = escape(results[i].text);
       messageData.status = false;
 
-      friendsData.createdAt = messageData.createdAt;
-      friendsData.objectId = messageData.objectId;
-      friendsData.roomname = messageData.roomname;
-      friendsData.updatedAt = messageData.updatedAt;
-      friendsData.username = messageData.username;
-      friendsData.text = messageData.text;
-      friendsData.status = false;
+      // friendsData.createdAt = messageData.createdAt;
+      // friendsData.objectId = messageData.objectId;
+      // friendsData.roomname = messageData.roomname;
+      // friendsData.updatedAt = messageData.updatedAt;
+      // friendsData.username = messageData.username;
+      // friendsData.text = messageData.text;
+      // friendsData.status = false;
 
       html += MessageView.render(messageData);
 
       messageArr.push(messageData);
-      friendsArr.push(friendsData);
+      // friendsArr.push(friendsData);
     }
     Messages.results = messageArr;
-    Friends.list = friendsArr;
+    // Friends.list = friendsArr;
 
     $chats.append(html);
 
-    Friends.test();
-    console.log(Messages.results);
+    // just a test for now! Possibly erase FRIENDs stuff above or comment out.
+    Friends.toggleStatus();
+
   },
 
   renderMessage: function (message) {
