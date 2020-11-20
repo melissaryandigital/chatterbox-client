@@ -10,8 +10,11 @@ var Friends = {
 
   test: function() {
     $user = $('.username');
+    $user = $('.chat');
 
-    console.log($user);
+    $user.on('click', function() {
+      console.log('yes');
+    });
 
   },
 
@@ -39,6 +42,17 @@ var Friends = {
 // Gets the text to find that username
 // Updates the friendStatus to true
 //
+
+
+
+// Messages.results in messagesView gets an extra property called status.
+// status will either be true / false. True means friends, False means NOT friends.
+// when you click on a username, all people with that username becomes friends by toggling.
+// status from false to true.
+// if status is true, add the class "friends" (styles.css) will fire.
+// if status is false, the css won't fire.
+
+
 
 
 

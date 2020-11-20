@@ -30,6 +30,7 @@ var MessagesView = {
       messageData.updatedAt = escape(results[i].updatedAt);
       messageData.username = escape(results[i].username);
       messageData.text = escape(results[i].text);
+      messageData.status = false;
 
       friendsData.createdAt = messageData.createdAt;
       friendsData.objectId = messageData.objectId;
@@ -50,6 +51,7 @@ var MessagesView = {
     $chats.append(html);
 
     Friends.test();
+    console.log(Messages.results);
   },
 
   renderMessage: function (message) {
@@ -74,7 +76,7 @@ var MessagesView = {
 
 
     var filteredResults = Messages.results.filter(item => {
-      return item['roomname'] === room;
+      return item.roomname === room;
     });
 
     for (var i = 0; i < filteredResults.length; i++) {
