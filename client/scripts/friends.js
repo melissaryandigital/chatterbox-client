@@ -1,17 +1,17 @@
 var Friends = {
-  $user: $('.username'),
+  // $user: $('.username'),
+
+  list: [],
 
   initialize: function () {
 
     Friends.toggleStatus();
-    Friends.$user.on('click', Friends.toggleStatus);
+
   },
 
   toggleStatus: function() {
-    console.log('Friends.$user', Friends.$user);
-    setTimeout(function() {
-      console.log($('.username'));
-    }, 3000);
+
+
   }
 };
 

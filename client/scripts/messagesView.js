@@ -16,11 +16,14 @@ var MessagesView = {
     let html = '';
     console.log(data);
     let { results } = data;
-    // console.log(results);
-    let arr = [];
+
+    let messageArr = [];
+    let friendsArr = [];
 
     for (let i = 0; i < results.length; i++) {
-      var messageData = {};
+      let messageData = {};
+      let friendsData = {};
+
       messageData.createdAt = _.escape(results[i].createdAt);
       messageData.objectId = _.escape(results[i].objectId);
       messageData.roomname = _.escape(results[i].roomname);
@@ -28,13 +31,24 @@ var MessagesView = {
       messageData.username = _.escape(results[i].username);
       messageData.text = _.escape(results[i].text);
 
+      friendsData.createdAt = messageData.createdAt;
+      friendsData.objectId = messageData.objectId;
+      friendsData.roomname = messageData.roomname;
+      friendsData.updatedAt = messageData.updatedAt;
+      friendsData.username = messageData.username;
+      friendsData.text = messageData.text;
+      friendsData.status = false;
+
       html += MessageView.render(messageData);
 
-      arr.push(messageData);
+      messageArr.push(messageData);
+      friendsArr.push(friendsData);
     }
-    Messages.results = arr;
-    $chats.append(html);
+    Messages.results = messageArr;
+    Friends.list = friendsArr;
 
+    $chats.append(html);
+    console.log(Friends.list);
   },
 
   renderMessage: function (message) {
@@ -55,7 +69,7 @@ var MessagesView = {
     $chats.html('');
     let html = '';
 
-    //let room = $('#selectedRooms').val();
+    let room = $('#selectedRooms').val();
 
 
     var filteredResults = Messages.results.filter(item => {
