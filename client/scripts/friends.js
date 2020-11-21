@@ -3,7 +3,7 @@ var Friends = {
   list: [],
 
   initialize: function () {
-    Friends.toggleStatus();
+    // Friends.toggleStatus();
   },
 
   addFriend: function () {
