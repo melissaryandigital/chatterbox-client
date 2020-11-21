@@ -1,6 +1,4 @@
 var Friends = {
-  //$user: $('.username'),
-  list: [],
 
   initialize: function () {
     Friends.toggleStatus();
