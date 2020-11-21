@@ -3,7 +3,7 @@ var Friends = {
   list: [],
 
   initialize: function () {
-    // Friends.toggleStatus();
+    Friends.toggleStatus();
   },
 
   addFriend: function () {
@@ -13,7 +13,6 @@ var Friends = {
     });
   },
 
-
   toggleStatus: function (friend) {
 
     let allUser = document.getElementsByClassName(friend);
@@ -21,6 +20,7 @@ var Friends = {
     for (let i = 0; i < allUser.length; i++) {
       if (!allUser[i].classList.contains('friend')) {
         allUser[i].classList.add('friend');
+
       } else {
         allUser[i].classList.remove('friend');
 
